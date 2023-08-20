@@ -1,8 +1,23 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+}
+
+button {
+  background-color: rgb(22, 93, 223);
+  color: white;
+  border-radius: 10px;
+  border: none;
+  min-height: 30px;
+  min-width: 120px;
+}
+
+button:hover {
+  background-color: rgb(15, 69, 166);
+  color: white;
+  transition: 0.3s;
 }
