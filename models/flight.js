@@ -25,6 +25,10 @@ const flightSchema = new Schema({
             let nextYearDate = new Date(date);
             nextYearDate.setFullYear(nextYear);
             return nextYearDate;
+            // let date = new Date().toLocaleDateString();
+            // let hours = new Date().getHours();
+            // let minutes = new Date().getMinutes();
+            // return `${date}T${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
         }
     }
 });

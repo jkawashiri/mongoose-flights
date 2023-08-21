@@ -16,7 +16,16 @@
         <td><%= f.airline %></td>
         <td><%= f.airport %></td>
         <td><%= f.flightNo %></td>
-        <td><%= f.departs %></td>
+        <td><%= (() => { 
+              let date = new Date(f.departs);
+              let year = date.getFullYear();
+              let month = (date.getMonth() + 1).toString().padStart(2, '0');
+              let day = date.getDate().toString().padStart(2, '0');
+              let hours = date.getHours().toString().padStart(2, '0');
+              let minutes = date.getMinutes().toString().padStart(2, '0');
+              return `${year}-${month}-${day} ${hours}:${minutes}`;
+          }) () %>
+        </td>
       </tr>
     <% }); %>
   </tbody>
