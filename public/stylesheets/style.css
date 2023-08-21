@@ -40,3 +40,8 @@ tbody {
   align-items: center;
   justify-content: center;
 }
+
+th, td {
+  padding-right: 5px;
+  padding-left: 5px;
+}

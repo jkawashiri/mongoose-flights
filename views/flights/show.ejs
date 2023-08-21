@@ -32,9 +32,6 @@
 
 <br><br><h2>Enter a Destination</h2>
 <form action="/flights/<%= flight._id %>/destinations" method="POST">
-  <label>Arrival Time:
-    <input type="datetime-local" name="arrival">
-  </label><br>
   <label>Airport:
     <select name="airport">
       <% let usedAirports = [flight.airport]; %>
@@ -51,6 +48,9 @@
       <option value="JFK" <%= usedAirports.includes('JFK') ? 'disabled' : '' %>>JFK</option>
     </select>
   </label><br>
+  <br><label>Arrival Time:
+    <input type="datetime-local" name="arrival">
+  </label><br>
   <br><div class="form">
     <button type="submit">Add Destination</button>
   </div>
@@ -60,13 +60,14 @@
   <table>
     <thead>
       <tr>
-        <th>Arrival Time</th>
         <th>Airport</th>
+        <th>Arrival Time</th>
       </tr>
     </thead>
     <tbody>
       <% flight.destinations.sort((a, b) => new Date(a.arrival) - new Date(b.arrival)).forEach(function(d) { %>
         <tr>
+          <td><%= d.airport %></td>
           <td>
             <%= (() => { 
               let date = new Date(d.arrival);
@@ -78,7 +79,6 @@
               return `${year}-${month}-${day} ${hours}:${minutes}`;
             }) () %>
           </td>
-          <td><%= d.airport %></td>
         </tr>
       <% }); %>
     </tbody>
