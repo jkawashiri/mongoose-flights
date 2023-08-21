@@ -3,11 +3,13 @@ var router = express.Router();
 
 var flightsCtrl = require('../controllers/flights')
 
-// GET /movies
+// GET /flights
 router.get('/', flightsCtrl.index);
-// GET /movies/new
+// GET /flights/new
 router.get('/new', flightsCtrl.new);
-// POST /movies
+// GET /flights/:id (show functionality) MUST be below new route
+router.get('/:id', flightsCtrl.show);
+// POST /flights
 router.post('/', flightsCtrl.create);
 
 module.exports = router;

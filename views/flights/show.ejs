@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+
+<h2><%= title %></h2>
+<table>
+    <thead>
+      <tr>
+        <th>Airline</th>
+        <th>Airport</th>
+        <th>Flight No.</th>
+        <th>Departure Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= flight.airline %></td>
+        <td><%= flight.airport %></td>
+        <td><%= flight.flightNo %></td>
+        <td><%= (() => { 
+            let date = new Date(flight.departs);
+            let year = date.getFullYear();
+            let month = (date.getMonth() + 1).toString().padStart(2, '0');
+            let day = date.getDate().toString().padStart(2, '0');
+            let hours = date.getHours().toString().padStart(2, '0');
+            let minutes = date.getMinutes().toString().padStart(2, '0');
+            return `${year}-${month}-${day} ${hours}:${minutes}`;
+        }) () %>
+        </td>
+      </tr>
+    </tbody>
+</table>
+
+<%- include('../partials/footer') %>
