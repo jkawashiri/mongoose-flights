@@ -46,10 +46,12 @@
       <option value="JFK">JFK</option>
     </select>
   </label><br>
-  <br><button type="submit">Add Destination</button>
+  <br><div class="form">
+    <button type="submit">Add Destination</button>
+  </div>
 </form>
 
-<br><br><% if (flight.destinations.length) { %>
+<br><% if (flight.destinations.length) { %>
   <table>
     <thead>
       <tr>
