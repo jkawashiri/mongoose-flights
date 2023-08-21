@@ -37,13 +37,18 @@
   </label><br>
   <label>Airport:
     <select name="airport">
-      <option value="AUS">AUS</option>
-      <option value="DFW">DFW</option>
-      <option value="DEN">DEN</option>
-      <option value="LAX" selected>LAX</option>
-      <option value="SAN">SAN</option>
-      <option value="BUR">BUR</option>
-      <option value="JFK">JFK</option>
+      <% let usedAirports = [flight.airport]; %>
+      <% flight.destinations.forEach(function(d) { %>
+        <% usedAirports.push(d.airport); %>
+      <% }); %>
+
+      <option value="AUS" <%= usedAirports.includes('AUS') ? 'disabled' : '' %>>AUS</option>
+      <option value="DFW" <%= usedAirports.includes('DFW') ? 'disabled' : '' %>>DFW</option>
+      <option value="DEN" <%= usedAirports.includes('DEN') ? 'disabled' : '' %>>DEN</option>
+      <option value="LAX" <%= usedAirports.includes('LAX') ? 'disabled' : 'selected' %>>LAX</option>
+      <option value="SAN" <%= usedAirports.includes('SAN') ? 'disabled' : '' %>>SAN</option>
+      <option value="BUR" <%= usedAirports.includes('BUR') ? 'disabled' : '' %>>BUR</option>
+      <option value="JFK" <%= usedAirports.includes('JFK') ? 'disabled' : '' %>>JFK</option>
     </select>
   </label><br>
   <br><div class="form">
