@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <% flights.forEach(function(f) { %>
+    <% flights.sort((a, b) => new Date(a.departs) - new Date(b.departs)).forEach(function(f) { %>
       <tr>
         <td><%= f.airline %></td>
         <td><%= f.airport %></td>
