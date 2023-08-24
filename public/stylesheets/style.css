@@ -45,3 +45,12 @@ th, td {
   padding-right: 5px;
   padding-left: 5px;
 }
+
+.delete {
+  background-color: rgb(234, 83, 93);
+  min-width: 75px;
+}
+
+.delete:hover {
+  background-color: #bb424a;
+}
